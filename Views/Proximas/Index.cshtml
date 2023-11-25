@@ -1,0 +1,53 @@
+﻿@model IEnumerable<global_enterprise.Entities.Proximas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Próximas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeVacina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FaixaEtaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recomendacoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeVacina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FaixaEtaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recomendacoes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdRegistroProximas">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdRegistroProximas">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdRegistroProximas">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

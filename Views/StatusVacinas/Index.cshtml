@@ -1,0 +1,47 @@
+﻿@model IEnumerable<global_enterprise.Entities.StatusVacina>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Status Vacina</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroLote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroLote)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdStatus">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdStatus">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdStatus">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
